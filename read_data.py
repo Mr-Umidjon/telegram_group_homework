@@ -1,5 +1,7 @@
 import json
-def read_data(file_path: str)->dict:
+
+
+def read_data(file_path: str) -> dict:
     """
     This function will read the json file and return the data as a dictionary.
     
@@ -9,5 +11,10 @@ def read_data(file_path: str)->dict:
         dict: Dictionary containing the data of the json file.
     
     """
-    #open file
-    return
+    # open file
+    f = open(file_path, encoding='utf-8')
+    data = json.load(f)
+    return data
+
+
+print(read_data("data/result.json"))
