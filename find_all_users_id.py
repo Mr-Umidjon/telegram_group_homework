@@ -12,12 +12,14 @@ def find_all_users_id(data: dict) -> list:
     """
     users_ids = []
     for message in data['messages']:
-        users_id = message.get("actor_id")
-        if users_id:
-            users_ids.append(users_id)
+        if message['type'] == 'message':
+            users_ids.append(message['from_id'])
+        else:
+            users_ids.append(message['actor_id'])
+
     return users_ids
 
 
 data = read_data("data/result.json")
 print(find_all_users_id(data))
-print(data['messages'][0].keys())
+# print(data['messages'])
