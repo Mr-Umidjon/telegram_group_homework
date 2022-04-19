@@ -13,7 +13,8 @@ def find_all_users_name(data: dict) -> list:
     users = []
     for message in data['messages']:
         user = message.get('actor')
-        users.append(user)
+        if user and user not in users:
+            users.append(user)
 
     return users
 
