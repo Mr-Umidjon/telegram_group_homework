@@ -17,11 +17,11 @@ def find_all_users_id(data: dict) -> list:
         if id1 and id1 not in users_ids:
             users_ids.append(message.get('from_id'))
 
-    for message in data['messages']:
-        # print(message)
-        id2 = message.get('actor_id', False)
-        if id2 and id2 not in users_ids:
-            users_ids.append(message.get('actor_id'))
+    # for message in data['messages']:
+    #     # print(message)
+    #     id2 = message.get('actor_id', False)
+    #     if id2 and id2 not in users_ids:
+    #         users_ids.append(message.get('actor_id'))
 
     return users_ids
 
