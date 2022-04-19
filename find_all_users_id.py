@@ -13,7 +13,7 @@ def find_all_users_id(data: dict) -> list:
     users_ids = []
     for message in data['messages']:
         users_id = message.get("actor_id")
-        if users_id and users_id not in users_ids:
+        if users_id:
             users_ids.append(users_id)
     return users_ids
 
