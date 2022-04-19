@@ -15,9 +15,9 @@ def find_all_users_id(data: dict) -> list:
         users_id = message.get("actor_id")
         if users_id and users_id not in users_ids:
             users_ids.append(users_id)
-    return users_ids
+    return sorted(users_ids, reverse=True)
 
 
 data = read_data("data/result.json")
 print(find_all_users_id(data))
-# print(data['messages'][0]['actor_id'])
+print(data['messages'][0].keys())
