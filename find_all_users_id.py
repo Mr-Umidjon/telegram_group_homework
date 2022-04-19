@@ -11,11 +11,11 @@ def find_all_users_id(data: dict) -> list:
         list: List containing all the users id
     """
     users_ids = []
-    for message in data['messages']:
+    for message in data['messages'][::-1]:
         users_id = message.get("actor_id")
         if users_id and users_id not in users_ids:
             users_ids.append(users_id)
-    return sorted(users_ids, reverse=True)
+    return users_ids
 
 
 data = read_data("data/result.json")
